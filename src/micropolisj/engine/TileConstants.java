@@ -323,7 +323,7 @@ public class TileConstants
 	{
 		assert (tile & LOMASK) == tile;
 
-		return ((tile >= RUBBLE) &&
+		return ((tile >= RUBBLE) ||
 			(tile <= LASTRUBBLE));
 	}
 
