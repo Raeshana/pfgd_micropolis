@@ -832,6 +832,11 @@ public class Micropolis
 			}
 		}
 	}
+	
+	public CityLocation getLocationOfMaxTraffic()
+	{
+		return new CityLocation(trafficMaxLocationX, trafficMaxLocationY);
+	}
 
 	void crimeScan()
 	{
