@@ -2318,7 +2318,8 @@ public class Micropolis
 
 	public void makeMonster()
 	{
-		MonsterSprite monster = (MonsterSprite) getSprite(SpriteKind.GOD);
+		//MonsterSprite monster = (MonsterSprite) getSprite(SpriteKind.GOD);
+		ExceedSprite monster = (ExceedSprite) getSprite(SpriteKind.GOD);
 		if (monster != null) {
 			// already have a monster in town
 			monster.soundCount = 1;
@@ -2348,7 +2349,8 @@ public class Micropolis
 	void makeMonsterAt(int xpos, int ypos)
 	{
 		assert !hasSprite(SpriteKind.GOD);
-		sprites.add(new MonsterSprite(this, xpos, ypos));
+		//sprites.add(new MonsterSprite(this, xpos, ypos));
+		sprites.add(new ExceedSprite(this, xpos, ypos));
 	}
 
 	public void makeTornado()
