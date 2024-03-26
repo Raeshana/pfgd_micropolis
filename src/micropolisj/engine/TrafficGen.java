@@ -64,26 +64,26 @@ class TrafficGen
 			int tile = city.getTile(mapX, mapY);
 			if (tile >= ROADBASE && tile < POWERBASE)
 			{
-				int distanceToExceed = -1;
+				int distanceToTrain = -1;
 
-				ExceedSprite exceed = (ExceedSprite) city.getSprite(SpriteKind.GOD);
+				TrainSprite train = (TrainSprite) city.getSprite(SpriteKind.TRA);
 				
-				if(exceed != null) { // exceed found
+				if(train != null) { // train found
 					
 					// find the distance from the train to the tile
-					CityLocation exceedLoc = exceed.getCityLocation();
-					distanceToExceed = Sprite.getDis(exceedLoc.x,exceedLoc.y,mapX,mapY);
+					CityLocation trainLoc = train.getCityLocation();
+					distanceToTrain = Sprite.getDis(trainLoc.x,trainLoc.y,mapX,mapY);
 					
-					System.out.println("The exceed is at (" + exceedLoc.x + "," + exceedLoc.y 
+					System.out.println("The train is at (" + trainLoc.x + "," + trainLoc.y 
 										+ ") and this location is (" + mapX + "," + mapY
-										+ "). Distance: " + Sprite.getDis(exceedLoc.x,exceedLoc.y,mapX,mapY));
+										+ "). Distance: " + Sprite.getDis(trainLoc.x,trainLoc.y,mapX,mapY));
 				}
 	
-				if(distanceToExceed < 0) { // no exceed found
+				if(distanceToTrain < 0) { // no trains found
 					city.addTraffic(mapX, mapY, 50);
-				} else if(distanceToExceed > 15) { // exceed not in range
+				} else if(distanceToTrain > 15) { // train not in range
 					city.addTraffic(mapX, mapY, 50);
-				} else { // exceed in range
+				} else { // train in range
 					city.addTraffic(mapX, mapY, -1000);
 				}
 			}
