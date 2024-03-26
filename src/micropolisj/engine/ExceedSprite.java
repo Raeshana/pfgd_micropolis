@@ -61,7 +61,7 @@ public class ExceedSprite extends Sprite
 			(ypos > city.getHeight() / 2 ? 1 : 4);
 
 		this.count = 1000;
-		CityLocation p = city.getLocationOfMaxPollution();
+		CityLocation p = city.getLocationOfMaxTraffic();
 		this.destX = p.x * 16 + 8;
 		this.destY = p.y * 16 + 8;
 		this.flag = false;
@@ -72,6 +72,7 @@ public class ExceedSprite extends Sprite
 	public void moveImpl()
 	{
 		System.out.println("Exceed spawned");
+		
 		if (this.frame == 0) {
 			return;
 		}
@@ -113,14 +114,14 @@ public class ExceedSprite extends Sprite
 			assert c >= 0 && c < 4;
 
 			if ((c != d) && city.PRNG.nextInt(11) == 0) {
-				// randomly determine direction to turn
-				if (city.PRNG.nextInt(2) == 0) {
-					z = ND1[d];
-				}
-				else {
-					z = ND2[d];
-				}
-				d = 4;  //transition heading
+//				// randomly determine direction to turn
+//				if (city.PRNG.nextInt(2) == 0) {
+//					z = ND1[d];
+//				}
+//				else {
+//					z = ND2[d];
+//				}
+//				d = 4;  //transition heading
 
 				if (soundCount == 0) {
 					city.makeSound(x/16, y/16, Sound.MONSTER);
