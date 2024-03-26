@@ -225,17 +225,5 @@ public abstract class Sprite
 		if (p < 1) return 8;
 		return p;
 	}
-	
-	/**
-	 * Uses the pixel locations of a sprite to
-	 * calculate its map positions
-	 * 
-	 * @return the map position of a sprite
-	 */
-	public CityLocation getCityLocation() {
-
-		return new CityLocation(x/16,y/16);
-
-		}
 
 }

@@ -64,28 +64,7 @@ class TrafficGen
 			int tile = city.getTile(mapX, mapY);
 			if (tile >= ROADBASE && tile < POWERBASE)
 			{
-				int distanceToTrain = -1;
-
-				TrainSprite train = (TrainSprite) city.getSprite(SpriteKind.TRA);
-				
-				if(train != null) { // train found
-					
-					// find the distance from the train to the tile
-					CityLocation trainLoc = train.getCityLocation();
-					distanceToTrain = Sprite.getDis(trainLoc.x,trainLoc.y,mapX,mapY);
-					
-					System.out.println("The train is at (" + trainLoc.x + "," + trainLoc.y 
-										+ ") and this location is (" + mapX + "," + mapY
-										+ "). Distance: " + Sprite.getDis(trainLoc.x,trainLoc.y,mapX,mapY));
-				}
-	
-				if(distanceToTrain < 0) { // no trains found
-					city.addTraffic(mapX, mapY, 50);
-				} else if(distanceToTrain > 15) { // train not in range
-					city.addTraffic(mapX, mapY, 50);
-				} else { // train in range
-					city.addTraffic(mapX, mapY, -1000);
-				}
+				city.addTraffic(mapX, mapY, 50);
 			}
 		}
 	}
