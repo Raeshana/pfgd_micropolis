@@ -57,8 +57,8 @@ public class ExceedSprite extends Sprite
 		this.origY = y;
 
 		this.frame = xpos > city.getWidth() / 2 ?
-			(ypos > city.getHeight() / 2 ? 10 : 7) :
-			(ypos > city.getHeight() / 2 ? 1 : 4);
+					(ypos > city.getHeight() / 2 ? 10 : 7) :
+					(ypos > city.getHeight() / 2 ? 1 : 4);
 
 		this.count = 1000;
 		CityLocation p = city.getLocationOfMaxTraffic();
@@ -68,11 +68,8 @@ public class ExceedSprite extends Sprite
 		this.step = 1;
 	}
 
-	@Override
 	public void moveImpl()
 	{
-		System.out.println("Exceed spawned");
-		
 		if (this.frame == 0) {
 			return;
 		}
@@ -95,17 +92,16 @@ public class ExceedSprite extends Sprite
 				// reached destination
 
 				if (!flag) {
-					// destination was the pollution center;
-					// now head for home
-					flag = true;
-					destX = origX;
-					destY = origY;
-				}
-				else {
-					// destination was origX, origY;
-					// hide the sprite
-					this.frame = 0;
-					return;
+					// destination was the previous max traffic area
+					// update max traffic area
+					System.out.println("Max traffic: (" + 
+										this.destX +
+										", " +
+										this.destY +
+										")");
+					CityLocation p = city.getLocationOfMaxTraffic();
+					this.destX = p.x * 16 + 8;
+					this.destY = p.y * 16 + 8;
 				}
 			}
 
@@ -114,14 +110,14 @@ public class ExceedSprite extends Sprite
 			assert c >= 0 && c < 4;
 
 			if ((c != d) && city.PRNG.nextInt(11) == 0) {
-//				// randomly determine direction to turn
-//				if (city.PRNG.nextInt(2) == 0) {
-//					z = ND1[d];
-//				}
-//				else {
-//					z = ND2[d];
-//				}
-//				d = 4;  //transition heading
+				// randomly determine direction to turn
+				if (city.PRNG.nextInt(2) == 0) {
+					z = ND1[d];
+				}
+				else {
+					z = ND2[d];
+				}
+				d = 4;  //transition heading
 
 				if (soundCount == 0) {
 					city.makeSound(x/16, y/16, Sound.MONSTER);
@@ -162,12 +158,12 @@ public class ExceedSprite extends Sprite
 			this.count--;
 		}
 
-		int c = getChar(x, y);
-		if (c == -1 ||
-			(c == RIVER && this.count != 0 && false)
-			) {
-			this.frame = 0; //kill zilla
-		}
+//		int c = getChar(x, y);
+//		if (c == -1 ||
+//			(c == RIVER && this.count != 0 && false)
+//			) {
+//			this.frame = 0; //kill zilla
+//		}
 
 //		for (Sprite s : city.allSprites())
 //		{

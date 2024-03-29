@@ -74,9 +74,15 @@ class TrafficGen
 					CityLocation exceedLoc = exceed.getCityLocation();
 					distanceToExceed = Sprite.getDis(exceedLoc.x,exceedLoc.y,mapX,mapY);
 					
-					System.out.println("The exceed is at (" + exceedLoc.x + "," + exceedLoc.y 
-										+ ") and this location is (" + mapX + "," + mapY + "). Distance: " 
-										+ Sprite.getDis(exceedLoc.x, exceedLoc.y, mapX, mapY));
+//					System.out.println("The exceed is at (" + 
+//										exceedLoc.x + 
+//										"," + 
+//										exceedLoc.y + 
+//										") and this location is (" + 
+//										mapX + "," + 
+//										mapY + 
+//										"). Distance: " + 
+//										Sprite.getDis(exceedLoc.x, exceedLoc.y, mapX, mapY));
 				}
 	
 				if(distanceToExceed < 0) { // no exceed found
