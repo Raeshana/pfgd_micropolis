@@ -29,7 +29,8 @@ public enum MicropolisTool
 	POWERPLANT(4, 3000),
 	NUCLEAR(4, 5000),
 	AIRPORT(6, 10000),
-	QUERY(1, 0);
+	QUERY(1, 0),
+	FAIRYTAIL(4,5000);
 
 	int size;
 	int cost;
@@ -69,7 +70,10 @@ public enum MicropolisTool
 		case NUCLEAR:
 		case AIRPORT:
 			return new BuildingTool(engine, this, xpos, ypos);
-
+		
+		case FAIRYTAIL:
+			return new BuildingTool(engine, this, xpos, ypos);
+		
 		default:
 			return new ToolStroke(engine, this, xpos, ypos);
 		}
