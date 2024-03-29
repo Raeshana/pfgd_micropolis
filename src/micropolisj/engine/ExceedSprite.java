@@ -11,7 +11,7 @@ package micropolisj.engine;
 import static micropolisj.engine.TileConstants.*;
 
 /**
- * Implements a monster (one of the Micropolis disasters).
+ * Implements an Exceed (cat with wings that reduces traffic)
  */
 public class ExceedSprite extends Sprite
 {
@@ -45,7 +45,7 @@ public class ExceedSprite extends Sprite
 
 	public ExceedSprite(Micropolis engine, int xpos, int ypos)
 	{
-		super(engine, SpriteKind.GOD);
+		super(engine, SpriteKind.EXC);
 		this.x = xpos * 16 + 8;
 		this.y = ypos * 16 + 8;
 		this.width = 48;
@@ -120,7 +120,7 @@ public class ExceedSprite extends Sprite
 				d = 4;  //transition heading
 
 				if (soundCount == 0) {
-					city.makeSound(x/16, y/16, Sound.MONSTER);
+					city.makeSound(x/16, y/16, Sound.EXCEED);
 					soundCount = 50 + city.PRNG.nextInt(101);
 				}
 			}

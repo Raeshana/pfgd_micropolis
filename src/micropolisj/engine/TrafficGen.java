@@ -66,7 +66,7 @@ class TrafficGen
 			{
 				int distanceToExceed = -1;
 
-				ExceedSprite exceed = (ExceedSprite) city.getSprite(SpriteKind.GOD);
+				ExceedSprite exceed = (ExceedSprite) city.getSprite(SpriteKind.EXC);
 				
 				if(exceed != null) { // exceed found
 					

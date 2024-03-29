@@ -20,7 +20,8 @@ public enum SpriteKind
 	GOD(5,16),
 	TOR(6,3),
 	EXP(7,6),
-	BUS(8,4);
+	BUS(8,4),
+	EXC(9,16);
 
 	public final int objectId;
 	public final int numFrames;

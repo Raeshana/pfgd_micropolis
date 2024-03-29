@@ -1586,6 +1586,14 @@ public class Micropolis
 			sprites.add(new TrainSprite(this, xpos, ypos));
 		}
 	}
+	
+	void generateExceed()
+	{
+		CityLocation p = getLocationOfMaxTraffic();
+		int xpos = p.x * 16 + 8;
+		int ypos = p.y * 16 + 8;
+		sprites.add(new ExceedSprite(this, xpos, ypos));
+	}
 
 	Stack<CityLocation> powerPlants = new Stack<CityLocation>();
 
@@ -2323,8 +2331,9 @@ public class Micropolis
 
 	public void makeMonster()
 	{
-		//MonsterSprite monster = (MonsterSprite) getSprite(SpriteKind.GOD);
-		ExceedSprite monster = (ExceedSprite) getSprite(SpriteKind.GOD);
+//		MonsterSprite monster = (MonsterSprite) getSprite(SpriteKind.GOD);
+		ExceedSprite monster = (ExceedSprite) getSprite(SpriteKind.EXC);
+		
 		if (monster != null) {
 			// already have a monster in town
 			monster.soundCount = 1;
@@ -2353,8 +2362,9 @@ public class Micropolis
 
 	void makeMonsterAt(int xpos, int ypos)
 	{
-		assert !hasSprite(SpriteKind.GOD);
-		//sprites.add(new MonsterSprite(this, xpos, ypos));
+//		assert !hasSprite(SpriteKind.GOD);
+//		sprites.add(new MonsterSprite(this, xpos, ypos));
+		
 		sprites.add(new ExceedSprite(this, xpos, ypos));
 	}
 
