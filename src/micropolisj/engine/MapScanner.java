@@ -318,7 +318,7 @@ class MapScanner extends TileBehavior
 	void doFairytail()
 	{
 		boolean powerOn = checkZonePower();
-		city.seaportCount++;
+		city.fairytailCount++;
 		if ((city.cityTime % 16) == 0) {
 			repairZone(FAIRYTAIL, 4);
 		}
