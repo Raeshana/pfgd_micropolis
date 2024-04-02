@@ -1587,7 +1587,7 @@ public class Micropolis
 		}
 	}
 	
-	void generateExceed()
+	public void generateExceed()
 	{
 		CityLocation p = getLocationOfMaxTraffic();
 		int xpos = p.x * 16 + 8;

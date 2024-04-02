@@ -781,6 +781,19 @@ public class MainWindow extends JFrame
 			}
 			}));
 		helpMenu.add(menuItem);
+		
+		JMenu helpersMenu = new JMenu(strings.getString("menu.helpers"));
+		setupKeys(helpersMenu, "menu.helpers");
+		menuBar.add(helpersMenu);
+
+		menuItem = new JMenuItem(strings.getString("menu.helpers.exceed"));
+		setupKeys(menuItem, "menu.helpers.exceed");
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt)
+			{
+				onLaunchExceedClicked();
+			}});
+		helpersMenu.add(menuItem);
 
 		setJMenuBar(menuBar);
 	}
@@ -1728,5 +1741,10 @@ public class MainWindow extends JFrame
 			strings.getString("main.about_caption"),
 			JOptionPane.PLAIN_MESSAGE,
 			appIcon);
+	}
+	
+	private void onLaunchExceedClicked()
+	{
+		engine.generateExceed();
 	}
 }
