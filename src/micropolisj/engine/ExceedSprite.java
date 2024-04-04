@@ -92,16 +92,32 @@ public class ExceedSprite extends Sprite
 				// reached destination
 
 				if (!flag) {
-					// destination was the previous max traffic area
-					// update max traffic area
 					System.out.println("Max traffic: (" + 
 										this.destX +
 										", " +
 										this.destY +
 										")");
+					
+					// destination was the previous max traffic area
+					// update max traffic area
 					CityLocation p = city.getLocationOfMaxTraffic();
 					this.destX = p.x * 16 + 8;
 					this.destY = p.y * 16 + 8;
+					
+					// no max traffic area found
+					// remove Exceed
+					if (this.destX == 8 && this.destY == 8)
+					{
+						flag = true;
+						destX = origX;
+						destY = origY;
+					}
+				}
+				else {
+					// destination was origX, origY
+					// hide the sprite
+					this.frame = 0; // remove Exceed
+					return;
 				}
 			}
 
@@ -157,26 +173,5 @@ public class ExceedSprite extends Sprite
 		if (this.count > 0) {
 			this.count--;
 		}
-
-//		int c = getChar(x, y);
-//		if (c == -1 ||
-//			(c == RIVER && this.count != 0 && false)
-//			) {
-//			this.frame = 0; //kill zilla
-//		}
-
-//		for (Sprite s : city.allSprites())
-//		{
-//			if (checkSpriteCollision(s) &&
-//				(s.kind == SpriteKind.AIR ||
-//				 s.kind == SpriteKind.COP ||
-//				 s.kind == SpriteKind.SHI ||
-//				 s.kind == SpriteKind.TRA)
-//				) {
-//				s.explodeSprite();
-//			}
-//		}
-//
-//		destroyTile(x / 16, y / 16);
 	}
 }
