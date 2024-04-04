@@ -1589,12 +1589,23 @@ public class Micropolis
 		}
 	}
 	
-	void generateExceed()
+	/* Called by 'Summon Exceed' in Helpers menu 
+	 * Generates an Exceed to reduce traffic across the map
+	 */
+	public void generateExceed()
 	{
-		CityLocation p = getLocationOfMaxTraffic();
-		int xpos = p.x * 16 + 8;
-		int ypos = p.y * 16 + 8;
-		sprites.add(new ExceedSprite(this, xpos, ypos));
+		ExceedSprite exceed = (ExceedSprite) getSprite(SpriteKind.EXC);
+		
+		if (exceed != null) {
+			// already have an Exceed in town
+			// assume trafficMaxLocation was already calculated
+			sprites.add(new ExceedSprite(this, trafficMaxLocationX, trafficMaxLocationY));
+			return;
+		}
+		
+		// trafficMaxLocation not yet calculated
+		// spawn Exceed at the center of the map
+		sprites.add(new ExceedSprite(this, getWidth()/2, getHeight()/2));
 	}
 
 	Stack<CityLocation> powerPlants = new Stack<CityLocation>();
@@ -2333,8 +2344,7 @@ public class Micropolis
 
 	public void makeMonster()
 	{
-//		MonsterSprite monster = (MonsterSprite) getSprite(SpriteKind.GOD);
-		ExceedSprite monster = (ExceedSprite) getSprite(SpriteKind.EXC);
+		MonsterSprite monster = (MonsterSprite) getSprite(SpriteKind.GOD);
 		
 		if (monster != null) {
 			// already have a monster in town
@@ -2364,10 +2374,8 @@ public class Micropolis
 
 	void makeMonsterAt(int xpos, int ypos)
 	{
-//		assert !hasSprite(SpriteKind.GOD);
-//		sprites.add(new MonsterSprite(this, xpos, ypos));
-		
-		sprites.add(new ExceedSprite(this, xpos, ypos));
+		assert !hasSprite(SpriteKind.GOD);
+		sprites.add(new MonsterSprite(this, xpos, ypos));
 	}
 
 	public void makeTornado()
