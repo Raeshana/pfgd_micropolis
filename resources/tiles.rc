@@ -1009,20 +1009,3 @@
 957   misc_animation@0,2080
 958   misc_animation@0,2096
 959   misc_animation@0,2112
-# BEGIN FAIRYTAIL #
-960   fairytail@0,0            (conducts)
-961   fairytail@16,0           (conducts)
-962   fairytail@32,0           (conducts)
-963   fairytail@48,0           (conducts)
-964   fairytail@0,16           (conducts)
-965   fairytail@16,16    (zone)(conducts)(building=4x4)(behavior=FAIRYTAIL)(description=#22)
-966   fairytail@32,16          (conducts)
-967   fairytail@48,16          (conducts)
-968   fairytail@0,32           (conducts)
-969   fairytail@16,32          (conducts)
-970   fairytail@32,32          (conducts)
-971   fairytail@48,32          (conducts)
-972   fairytail@0,48           (conducts)
-973   fairytail@16,48          (conducts)
-974   fairytail@32,48          (conducts)
-975   fairytail@48,48          (conducts)
