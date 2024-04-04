@@ -92,11 +92,11 @@ public class ExceedSprite extends Sprite
 				// reached destination
 
 				if (!flag) {
-					System.out.println("Max traffic: (" + 
-										this.destX +
-										", " +
-										this.destY +
-										")");
+//					System.out.println("Max traffic: (" + 
+//										this.destX +
+//										", " +
+//										this.destY +
+//										")");
 					
 					// destination was the previous max traffic area
 					// update max traffic area
